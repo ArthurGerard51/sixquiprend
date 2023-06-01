@@ -93,9 +93,9 @@ public class Game {
 
     public int getPointsFromSeries(int index){
         int score = 0;
-        for(Card c : series[index]){
-            if(c != null) {
-                score += c.getHeadNumber();
+        for(int i = 0; i < 5; i++){
+            if(series[index][i] != null) {
+                score += series[index][i].getHeadNumber();
             }
         }
         return score;
