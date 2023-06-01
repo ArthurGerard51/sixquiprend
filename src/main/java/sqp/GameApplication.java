@@ -10,8 +10,8 @@ import java.io.IOException;
 public class GameApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/sqp/layouts/game.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("/sqp/layouts/menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
         stage.setTitle("6 Qui Prend");
         stage.setScene(scene);
         stage.show();

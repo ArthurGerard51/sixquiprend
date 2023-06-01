@@ -51,4 +51,12 @@ public class AbstractPlayer {
     public void cleanSelectedCard(){
         selectedCard = null;
     }
+    public boolean isHandEmpty(){
+        for(Card c : hand){
+            if(c != null){
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -1,6 +1,9 @@
 package sqp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Game {
 
@@ -10,7 +13,7 @@ public class Game {
     private ArrayList<Card> usedCards;
     private final Card[] series1, series2, series3, series4;
     private Card[][] series;
-    private final ArrayList<Card> cardsToPutOnBoard;
+    private ArrayList<Card> cardsToPutOnBoard;
     private boolean humanPlayerMustTakeSerie;
 
     public Game(){
@@ -26,6 +29,7 @@ public class Game {
         humanPlayer.setPlayerInCards();
         ai.setPlayerInCards();
         humanPlayer.sortHand();
+        ai.sortHand();
 
         series1 = new Card[]{deck.drawTopCard(), null, null, null, null, null};
         series2 = new Card[]{deck.drawTopCard(), null, null, null, null, null};
@@ -36,7 +40,33 @@ public class Game {
         humanPlayerMustTakeSerie = false;
     }
 
-    public AbstractPlayer getPlayerOrAi(boolean player){
+    public void newRound(){
+        usedCards.clear();
+        cardsToPutOnBoard.clear();
+        cleanSeries();
+        deck = new Deck();
+        for(int i = 0; i < 10; i++){
+            humanPlayer.getHand()[i] = deck.drawTopCard();
+            ai.getHand()[i] = deck.drawTopCard();
+        }
+        humanPlayer.setPlayerInCards();
+        ai.setPlayerInCards();
+        humanPlayer.sortHand();
+        ai.sortHand();
+        series1[0] = deck.drawTopCard();
+        series2[0] = deck.drawTopCard();
+        series3[0] = deck.drawTopCard();
+        series4[0] = deck.drawTopCard();
+    }
+
+    private void cleanSeries() {
+        Arrays.fill(series1, null);
+        Arrays.fill(series2, null);
+        Arrays.fill(series3, null);
+        Arrays.fill(series4, null);
+    }
+
+    public AbstractPlayer getPlayer(boolean player){
         if(player){
             return humanPlayer;
         } else {
@@ -116,6 +146,7 @@ public class Game {
     }
 
     public void playCardsThatMustBePlayed(){
+        Collections.sort(cardsToPutOnBoard, Comparator.comparingInt(Card::getNumber));
         while (cardsToPutOnBoard.size() > 0){
             Card card = cardsToPutOnBoard.get(0);
             if(!canCardBePutInSeries(card)){
@@ -151,7 +182,11 @@ public class Game {
         differences[3] = num - highest[3];
         int seriesIndex = getLowestIndex(differences);
         Card[] serie = series[seriesIndex];
-        serie[getFirstFreeCardIndex(serie)] = card;
+        int index = getFirstFreeCardIndex(serie);
+        serie[index] = card;
+        if(index == 5){
+            pickupSerieAndAssignPoints(seriesIndex, card.getPlayer());
+        }
     }
 
     public static int getLowestIndex(int[] array) {
@@ -187,5 +222,9 @@ public class Game {
 
     public void setHumanPlayerMustTakeSerie(boolean input) {
         humanPlayerMustTakeSerie = input;
+    }
+
+    public boolean noCardInStack(){
+        return cardsToPutOnBoard.size() == 0;
     }
 }

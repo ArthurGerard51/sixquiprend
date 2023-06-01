@@ -1,27 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2140dd21-ce5d-4044-afc5-d6fa9f20377e" name="Changes" comment="" />
+    <list default="true" id="2140dd21-ce5d-4044-afc5-d6fa9f20377e" name="Changes" comment="Game &amp; Graphics">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqp/6-qui-prend-jds.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqp/6_qui_prend_!.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqp/tete_de_boeuf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/AbstractPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/GameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/GameApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sqp/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqp/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqp/layouts/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqp/layouts/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqp/layouts/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqp/layouts/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqp/layouts/menu.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2QZeG13x0TPCmIB77AfqTl82qqG" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "C:/Users/8765/Documents/Java/SQP/SQP/src/main/java/sqp"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Game" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sqp.GameApplication" />
+      <module name="SQP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,6 +84,30 @@
       <option name="presentableId" value="Default" />
       <updated>1685565432997</updated>
     </task>
+    <task id="LOCAL-00001" summary="Game &amp; Graphics">
+      <created>1685565517088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685565517088</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Game &amp; Graphics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game &amp; Graphics" />
   </component>
 </project>

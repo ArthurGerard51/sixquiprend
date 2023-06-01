@@ -2,12 +2,14 @@ package sqp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 public class GameController {
 
@@ -19,6 +21,11 @@ public class GameController {
     public Button takeserie3button;
     @FXML
     public Button takeserie4button;
+    public Label aiName;
+    public Label aiScore;
+    public Label gametype;
+    public Label playerscore;
+    public Label playername;
     @FXML
     private ImageView playercard1;
     @FXML
@@ -112,10 +119,36 @@ public class GameController {
 
     public void initialize() throws FileNotFoundException {
         game = new Game();
-
+        aiName.setText("AI");
+        playername.setText("Player");
+        gametype.setText("Play until score 66");
         updateBoardImages();
         updatePlayerHandImages();
+        updateScoreLabels();
         setTakeSeriesButtonsDisabled(true);
+    }
+
+    public void startNewRoundIfFinished() throws FileNotFoundException {
+        if(game.getPlayer(true).isHandEmpty() && game.getPlayer(false).isHandEmpty() && game.noCardInStack()){
+            int pscore = game.getPlayer(true).getScore();
+            int aiscore = game.getPlayer(false).getScore();
+            if(pscore >= 66 && aiscore < 66){
+                gametype.setText("AI wins !");
+            } else if (aiscore >= 66 && pscore < 66) {
+                gametype.setText("You win !");
+            } else if (aiscore >= 66 && pscore >= 66){
+                if(aiscore > pscore){
+                    gametype.setText("You win !");
+                } else {
+                    gametype.setText("AI wins !");
+                }
+            } else {
+                game.newRound();
+                updateBoardImages();
+                updatePlayerHandImages();
+                updateScoreLabels();
+            }
+        }
     }
 
     private void updateBoardImages() throws FileNotFoundException {
@@ -137,8 +170,13 @@ public class GameController {
         }
     }
 
+    private void updateScoreLabels(){
+        playerscore.setText(String.valueOf(game.getPlayer(true).getScore()));
+        aiScore.setText(String.valueOf(game.getPlayer(false).getScore()));
+    }
+
     private void updatePlayerHandImages() throws FileNotFoundException {
-        Card[] hand = game.getPlayerOrAi(true).getHand();
+        Card[] hand = game.getPlayer(true).getHand();
         ImageView[] imageViews = new ImageView[]{playercard1, playercard2, playercard3, playercard4, playercard5, playercard6, playercard7, playercard8, playercard9, playercard10};
         for(int i = 0; i < 10; i++){
             if(hand[i]!=null){
@@ -184,6 +222,8 @@ public class GameController {
         setPlayButtonsDisabled(false);
         updateBoardImages();
         updatePlayerHandImages();
+        updateScoreLabels();
+        startNewRoundIfFinished();
     }
 
     public void takeSerie2(MouseEvent mouseEvent) throws FileNotFoundException {
@@ -194,6 +234,8 @@ public class GameController {
         setPlayButtonsDisabled(false);
         updateBoardImages();
         updatePlayerHandImages();
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void takeSerie3(MouseEvent mouseEvent) throws FileNotFoundException {
@@ -204,6 +246,8 @@ public class GameController {
         setPlayButtonsDisabled(false);
         updateBoardImages();
         updatePlayerHandImages();
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void takeSerie4(MouseEvent mouseEvent) throws FileNotFoundException {
@@ -214,111 +258,133 @@ public class GameController {
         setPlayButtonsDisabled(false);
         updateBoardImages();
         updatePlayerHandImages();
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public boolean doesCardExist(int index){
-        return game.getPlayerOrAi(true).getHand()[index] != null;
+        return game.getPlayer(true).getHand()[index] != null;
     }
 
     public void playCard1(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(0)) {
-            game.getPlayerOrAi(true).selectCard(0);
+            game.getPlayer(true).selectCard(0);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
 
 
     public void playCard2(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(1)) {
-            game.getPlayerOrAi(true).selectCard(1);
+            game.getPlayer(true).selectCard(1);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard3(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(2)) {
-            game.getPlayerOrAi(true).selectCard(2);
+            game.getPlayer(true).selectCard(2);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard4(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(3)) {
-            game.getPlayerOrAi(true).selectCard(3);
+            game.getPlayer(true).selectCard(3);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard5(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(4)) {
-            game.getPlayerOrAi(true).selectCard(4);
+            game.getPlayer(true).selectCard(4);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard6(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(5)) {
-            game.getPlayerOrAi(true).selectCard(5);
+            game.getPlayer(true).selectCard(5);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard7(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(6)) {
-            game.getPlayerOrAi(true).selectCard(6);
+            game.getPlayer(true).selectCard(6);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard8(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(7)) {
-            game.getPlayerOrAi(true).selectCard(7);
+            game.getPlayer(true).selectCard(7);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard9(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(8)) {
-            game.getPlayerOrAi(true).selectCard(8);
+            game.getPlayer(true).selectCard(8);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 
     public void playCard10(MouseEvent mouseEvent) throws FileNotFoundException {
         if(doesCardExist(9)) {
-            game.getPlayerOrAi(true).selectCard(9);
+            game.getPlayer(true).selectCard(9);
             game.playerHasSelectedCard();
             checkHumanMustTakeSerie();
             updateBoardImages();
             updatePlayerHandImages();
         }
+        startNewRoundIfFinished();
+        updateScoreLabels();
     }
 }
